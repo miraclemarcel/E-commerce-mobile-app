@@ -39,6 +39,7 @@ function TabStack() {
 
       <Tab.Navigator
       screenOptions={{
+        headerShown: false,
         tabBarItemStyle: { paddingBottom: 10 },
         // tabBarActiveBackgroundColor: "rgba(19, 80, 232, 0.3)",
         tabBarStyle: { padding: 10, height: 70 },
