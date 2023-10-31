@@ -19,7 +19,7 @@ const Login = ({ navigation }) => {
   const handleLogin = () => {
     // Implement your authentication logic here
     // You can use email and password state values
-    navigation.navigate('Home');
+    navigation.navigate('MainContent');
   };
 
 

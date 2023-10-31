@@ -1,5 +1,7 @@
 import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 // Import your screens here
 import Login from '../screens/login';
@@ -8,10 +10,13 @@ import Home from '../screens/home';
 import ResetPassword from '../screens/resetPassword/resetPassword';
 import ResetOtp from '../screens/resetPassword/ResetOtp';
 import CreateNewPaasword from '../screens/resetPassword/CreateNewPaasword';
+import Favourite from '../screens/Favourite';
+import Cart from '../screens/Cart';
 
-import { Text, View } from 'react-native';
+
 
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 
 function AuthStack () {
@@ -19,7 +24,6 @@ function AuthStack () {
     <Stack.Navigator
       initialRouteName="Login" 
     >
-      <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="SignUp" component={SignUp} />
       <Stack.Screen name="Login" component={Login}  />
       <Stack.Screen name="ResetPassword" component={ResetPassword} />
@@ -30,6 +34,49 @@ function AuthStack () {
 }
 
 
+function TabStack() {
+  return (
+
+      <Tab.Navigator
+      screenOptions={{
+        tabBarItemStyle: { paddingBottom: 10 },
+        // tabBarActiveBackgroundColor: "rgba(19, 80, 232, 0.3)",
+        tabBarStyle: { padding: 10, height: 70 },
+      }}
+      
+      >
+        <Tab.Screen 
+        name="Home" 
+        component={Home}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="home-outline" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tab.Screen 
+        name="Favourite" 
+        component={Favourite} 
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="heart-outline" color={color} size={size} />
+          ),
+        }}
+        />
+        <Tab.Screen 
+        name="Cart" 
+        component={Cart}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="cart-outline" color={color} size={size} />
+          ),
+        }}
+
+         />
+      </Tab.Navigator>
+
+  );
+}
 
 
 
@@ -44,13 +91,13 @@ export default function NavigationScreens () {
       headerLeftContainerStyle: { paddingLeft: 20 },
       headerStyle: { backgroundColor: "transparent" },
     }}
-    initialRouteName="AuthStack"
+    initialRouteName="MainContent"
      
      >
 
       <Stack.Screen name="AuthStack" component={AuthStack} options={{ headerShown: false, headerTitle: '' }}  />
-      {/* <Stack.Screen name="MainContent" component={TabNavigator} options={{ headerShown: false }} /> */}
-      
+      <Stack.Screen name='MainContent' component={TabStack}  options={{ headerShown: false, headerTitle: '' }} />
+    
 
 
      </Stack.Navigator>
