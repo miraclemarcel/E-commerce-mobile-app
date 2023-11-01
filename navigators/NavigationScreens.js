@@ -69,7 +69,7 @@ function TabStack() {
         component={Cart}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="cart-outline" color={color} size={size} />
+            <Ionicons name="person-outline" color={color} size={size} />
           ),
         }}
 

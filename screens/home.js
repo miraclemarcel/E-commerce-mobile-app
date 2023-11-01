@@ -11,7 +11,7 @@ const Home = () => {
           <View style={styles.HomeHeader}>
             <Ionicons name='location-outline' size={24} />
             <Text style={styles.location}>Lagos, Nigeria</Text>
-            <Ionicons name='location-outline' size={24} />
+            <Ionicons name='cart-outline' size={24} />
           </View>
       </View>
    </SafeAreaView>
