@@ -38,7 +38,7 @@ const Home = ({navigation}) => {
               />
           </View>
 
-          <ScrollView>
+          {/* <ScrollView> */}
             <View style={styles.AllProductsContainer}>
             {/* ========featured image banner ============== */}
              <View style={styles.ProductBanner}>
@@ -47,21 +47,24 @@ const Home = ({navigation}) => {
 
              <View style={styles.AllProducts}>
              <FlatList
-            data={ProductDummyData}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <View style={styles.ProductItem}>
-                <Image source={item.productImage} style={styles.ProductImage} />
-                <Text>{item.productName}</Text>
-                <Text>{item.ProductPrice}</Text>
-                <Text>{item.productCategory}</Text>
-              </View>
-            )}
-          />
+                data={ProductDummyData}
+                keyExtractor={(item) => item.id}
+                numColumns={2} // Set the number of columns to 2
+                renderItem={({ item }) => (
+                  <View style={styles.ProductItemContainer}>
+                    <View style={styles.ProductItem}>
+                      <Image source={item.productImage} style={styles.ProductImage} />
+                      <Text>{item.productName}</Text>
+                      <Text>{item.ProductPrice}</Text>
+                      <Text>{item.productCategory}</Text>
+                    </View>
+                  </View> 
+                )}
+              />
         
              </View>
             </View>
-          </ScrollView>
+          {/* </ScrollView> */}
        
            
  
@@ -117,10 +120,19 @@ const styles = StyleSheet.create({
     borderWidth: 1,
 
   },
+  ProductItemContainer:{
+    width: '49%',
+  },
   ProductItem:{
-    width: 50,
+    marginBottom: 16,
+    padding: 8,
+    backgroundColor: '#DEDEDE',
+
+  },
+  ProductImage: {
+    width: 130,
     height: 150,
-  }
+  },
  
  
 
