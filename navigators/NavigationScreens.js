@@ -12,6 +12,7 @@ import ResetOtp from '../screens/resetPassword/ResetOtp';
 import CreateNewPaasword from '../screens/resetPassword/CreateNewPaasword';
 import Favourite from '../screens/Favourite';
 import Cart from '../screens/Cart';
+import Profile from '../screens/Profile';
 
 
 
@@ -65,8 +66,8 @@ function TabStack() {
         }}
         />
         <Tab.Screen 
-        name="Cart" 
-        component={Cart}
+        name="Profile" 
+        component={Profile}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="person-outline" color={color} size={size} />
@@ -96,8 +97,14 @@ export default function NavigationScreens () {
      
      >
 
-      <Stack.Screen name="AuthStack" component={AuthStack} options={{ headerShown: false, headerTitle: '' }}  />
-      <Stack.Screen name='MainContent' component={TabStack}  options={{ headerShown: false, headerTitle: '' }} />
+      <Stack.Screen name="AuthStack" component={AuthStack} options={{ headerShown: false}}  />
+      <Stack.Screen name='MainContent' component={TabStack}  options={{ headerShown: false }} />
+
+      <Stack.Group name="CartStack" >
+
+      </Stack.Group>
+
+      <Stack.Screen name='Cart' component={Cart}/>
     
 
 

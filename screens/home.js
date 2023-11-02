@@ -2,16 +2,21 @@ import React from 'react'
 import { Text, View, StyleSheet} from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
-const Home = () => {
+const Home = ({navigation}) => {
   return (
    <SafeAreaView>
       <View style={styles.MainContainer} >
           <View style={styles.HomeHeader}>
             <Ionicons name='location-outline' size={24} />
             <Text style={styles.location}>Lagos, Nigeria</Text>
-            <Ionicons name='cart-outline' size={24} />
+           <TouchableOpacity 
+           onPress={() => navigation.navigate('Cart')}
+           >
+                    <Ionicons name='cart-outline' size={24} />
+           </TouchableOpacity>
           </View>
       </View>
    </SafeAreaView>
