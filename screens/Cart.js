@@ -8,9 +8,8 @@ function Cart() {
    <SafeAreaView>
         <View style={styles.MainContainer}>
           <View style={styles.ScreenHeader}>
-
+          <Text style={styles.ScreenTitle}>Cart page</Text>
           </View>
-            <Text style={styles.ScreenTitle}>Cart page</Text>
         </View>
    </SafeAreaView>
 

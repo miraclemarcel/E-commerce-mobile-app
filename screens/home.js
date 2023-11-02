@@ -1,11 +1,18 @@
-import React from 'react'
-import { Text, View, StyleSheet} from 'react-native'
+import React, { useState } from 'react'
+import { Text, View, StyleSheet, TextInput, FlatList, Image} from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import { ProductDummyData } from '../DataSets/ProductDataSets';
 
 
 const Home = ({navigation}) => {
+
+  const [search, setSearch] = useState('');
+
+
+
+
   return (
    <SafeAreaView>
       <View style={styles.MainContainer} >
@@ -15,9 +22,49 @@ const Home = ({navigation}) => {
            <TouchableOpacity 
            onPress={() => navigation.navigate('Cart')}
            >
-                    <Ionicons name='cart-outline' size={24} />
+                   <View>
+                      <Ionicons name='cart-outline' size={24} />
+                      <Text style={styles.Counter}>3</Text>
+                   </View>
            </TouchableOpacity>
           </View>
+          <View style={styles.SearchBar}>
+            <TextInput
+              style={styles.InputField}
+              placeholder="Search"
+              onChangeText={setSearch}
+              value={search}
+              
+              />
+          </View>
+
+          <ScrollView>
+            <View style={styles.AllProductsContainer}>
+            {/* ========featured image banner ============== */}
+             <View style={styles.ProductBanner}>
+              <Text>Banner image</Text>
+             </View>
+
+             <View style={styles.AllProducts}>
+             <FlatList
+            data={ProductDummyData}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <View style={styles.ProductItem}>
+                <Image source={item.productImage} style={styles.ProductImage} />
+                <Text>{item.productName}</Text>
+                <Text>{item.ProductPrice}</Text>
+                <Text>{item.productCategory}</Text>
+              </View>
+            )}
+          />
+        
+             </View>
+            </View>
+          </ScrollView>
+       
+           
+ 
       </View>
    </SafeAreaView>
   
@@ -42,6 +89,37 @@ const styles = StyleSheet.create({
   location: {
     fontWeight: '500',
     color: '#818181'
+  },
+  Counter:{
+    position: 'absolute',
+    padding: 2,
+    backgroundColor: '#FD0B0C',
+    height: 13,
+    width: 13,
+    color: '#ffffff',
+    fontSize: 8,
+    textAlign: 'center',
+    borderRadius: 13
+  },
+  SearchBar:{
+    marginTop: 10,
+  
+
+  },
+  InputField:{
+    backgroundColor: "#F5F5F5",
+    width: '100%', 
+    height: 50,
+    marginBottom: 16,
+    padding: 10, 
+    borderRadius: 7,
+    borderColor: '#A0A0A0',
+    borderWidth: 1,
+
+  },
+  ProductItem:{
+    width: 50,
+    height: 150,
   }
  
  
