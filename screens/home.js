@@ -4,10 +4,9 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { ProductDummyData } from '../DataSets/ProductDataSets';
-
+import Carousel from '../components/Carousel'
 
 const Home = ({navigation}) => {
-
   const [search, setSearch] = useState('');
 
 
@@ -37,12 +36,16 @@ const Home = ({navigation}) => {
               
               />
           </View>
+          <View>
+            <Text style={styles.homeBlackText}>Find The Most</Text>
+            <Text style={styles.homeBlueText}>Fashionable Dresses.</Text>
+          </View>
 
           {/* <ScrollView> */}
             <View style={styles.AllProductsContainer}>
             {/* ========featured image banner ============== */}
              <View style={styles.ProductBanner}>
-              <Text>Banner image</Text>
+            <Carousel/>
              </View>
 
              <View style={styles.AllProducts}>
@@ -120,13 +123,33 @@ const styles = StyleSheet.create({
     borderWidth: 1,
 
   },
+  homeBlackText: {
+    fontSize: 35,
+    fontWeight: '600'
+  },
+  homeBlueText: {
+    fontSize: 35,
+    fontWeight: '600',
+    color: '#387FFF'
+
+  },
+  
   ProductItemContainer:{
-    width: '49%',
+    width: '50%',
+    margin: 8,
+    
   },
   ProductItem:{
     marginBottom: 16,
+    justifyContent: 'space-between',
+    // marginLeft: 10,
     padding: 8,
     backgroundColor: '#DEDEDE',
+    borderRadius: 8, // Add border radius for rounded corners
+    borderColor: '#E0E0E0', // Add border color for separation
+    borderWidth: 1, // Add border width for separation
+    alignItems: 'center',
+    // width: 40,
 
   },
   ProductImage: {
