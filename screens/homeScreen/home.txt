@@ -3,8 +3,10 @@ import { Text, View, StyleSheet, TextInput, FlatList, Image} from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
-import { ProductDummyData } from '../DataSets/ProductDataSets';
-import Carousel from '../components/Carousel'
+import { ProductDummyData } from '../../DataSets/ProductDataSets';
+import SwiperCarousel from './SwiperCarousel';
+import Products from './Products';
+
 
 const Home = ({navigation}) => {
   const [search, setSearch] = useState('');
@@ -27,6 +29,12 @@ const Home = ({navigation}) => {
                    </View>
            </TouchableOpacity>
           </View>
+          <View>
+            <Text style={styles.homeBlackText}>Find The Most</Text>
+            <Text style={styles.homeBlueText}>Fashionable Dresses.</Text>
+          </View>
+
+          {/* <ScrollView> */}
           <View style={styles.SearchBar}>
             <TextInput
               style={styles.InputField}
@@ -36,19 +44,12 @@ const Home = ({navigation}) => {
               
               />
           </View>
-          <View>
-            <Text style={styles.homeBlackText}>Find The Most</Text>
-            <Text style={styles.homeBlueText}>Fashionable Dresses.</Text>
-          </View>
-
-          {/* <ScrollView> */}
             <View style={styles.AllProductsContainer}>
             {/* ========featured image banner ============== */}
              <View style={styles.ProductBanner}>
-            <Carousel/>
+              <SwiperCarousel/>
              </View>
-
-             <View style={styles.AllProducts}>
+             {/* <View style={styles.AllProducts}>
              <FlatList
                 data={ProductDummyData}
                 keyExtractor={(item) => item.id}
@@ -65,7 +66,8 @@ const Home = ({navigation}) => {
                 )}
               />
         
-             </View>
+             </View> */}
+             <Products/>
             </View>
           {/* </ScrollView> */}
        

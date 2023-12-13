@@ -6,7 +6,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 // Import your screens here
 import Login from '../screens/login';
 import SignUp from '../screens/signup';
-import Home from '../screens/home';
+import Home from '../screens/homeScreen/home';
 import ResetPassword from '../screens/resetPassword/resetPassword';
 import ResetOtp from '../screens/resetPassword/ResetOtp';
 import CreateNewPaasword from '../screens/resetPassword/CreateNewPaasword';
